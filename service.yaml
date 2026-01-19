@@ -2,14 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: knowledge-repo-server
-  labels:
-    app: knowledge-repo-server
+  namespace: knowledge-repo
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: knowledge-repo-server
   ports:
-    - name: http
-      port: 5000
-      targetPort: 5000
-      protocol: TCP
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30050

@@ -2,10 +2,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: knowledge-repo-server-config
-  labels:
-    app: knowledge-repo-server
+  namespace: knowledge-repo
 data:
-  FLASK_ENV: "production"
+  DATABASE_URL: "postgresql://localhost/knowledge_repo"
+  JWT_EXPIRY_HOURS: "24"
   PORT: "5000"
   DEBUG: "false"
-  UPLOAD_FOLDER: "/app/uploads"
+  GUNICORN_WORKERS: "2"
